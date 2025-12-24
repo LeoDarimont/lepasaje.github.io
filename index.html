@@ -586,8 +586,16 @@
                 Have questions about our jewelry or want to place a custom order? Get in touch with us!
             </p>
 
-            <form name="contact" method="POST" data-netlify="true" class="contact-form">
-                <input type="hidden" name="form-name" value="contact">
+            <form 
+            action="https://formspree.io/f/your-unique-id" 
+            method="POST" 
+            class="contact-form"
+            >
+            <label>Your email:</label>
+            <input type="email" name="email">
+            <button type="submit">Send</button>
+            </form>
+                            <input type="hidden" name="form-name" value="contact">
 
                 <div class="form-group">
                     <label for="name">Your Name *</label>
