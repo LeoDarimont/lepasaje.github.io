@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <title>MybeadsbyB - Handmade Beaded Earrings</title>
     <style>
         * {
@@ -13,10 +16,12 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Playfair Display', serif;
+            background: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
+
 
         header {
             background: white;
@@ -59,8 +64,7 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f5e6d3" width="1200" height="600"/><circle cx="600" cy="300" r="100" fill="%23d4a574" opacity="0.3"/></svg>');
+            background: url('home.png');
             background-size: cover;
             background-position: center;
             height: 500px;
@@ -145,6 +149,78 @@
             align-items: center;
             justify-content: center;
             font-size: 4rem;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .carousel-images img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+
+        .carousel-arrow.next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: white;
         }
 
         .product-info {
@@ -311,44 +387,103 @@
     </header>
 
     <section class="hero" id="home">
-        <h1>MybeadsbyB</h1>
-        <p>Handmade beaded earrings</p>
-        <a href="#catalog" class="cta-button">Shop Now</a>
+        </p>
     </section>
 
     <div class="container" id="catalog">
         <h2 class="section-title">New this season</h2>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image">✨</div>
+                <img src="amiga-black.jpg" alt="Amiga Black Earrings"
+                    style="width: 100%; height: 300px; object-fit: cover;">
                 <div class="product-info">
                     <div class="product-name">Amiga Collection - Black</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <img src="earring.png" alt="Amiga Black Earrings"
+                <img src="amiga-white.jpg" alt="Amiga White Earrings"
                     style="width: 100%; height: 300px; object-fit: cover;">
                 <div class="product-info">
                     <div class="product-name">Amiga Collection - White</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image">🌟</div>
+                <img src="clarissa-black.jpg" alt="Clarissa Black Earrings"
+                    style="width: 100%; height: 300px; object-fit: cover;">
                 <div class="product-info">
                     <div class="product-name">Clarissa Collection - Black</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
 
             <div class="product-card">
-                <div class="product-image">💎</div>
+                <div class="carousel" data-carousel>
+                    <div class="carousel-images">
+                        <img src="clarissa-blue-1.jpg" alt="Clarissa Blue 1">
+                        <img src="clarissa-blue-2.jpg" alt="Clarissa Blue 2">
+                        <img src="clarissa-blue-3.jpg" alt="Clarissa Blue 3">
+                    </div>
+                    <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
+                    <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Clarissa Collection - Pink</div>
+                    <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="carousel" data-carousel>
+                    <div class="carousel-images">
+                        <img src="clarissa-blue-1.jpg" alt="Clarissa Blue 1">
+                        <img src="clarissa-blue-2.jpg" alt="Clarissa Blue 2">
+                        <img src="clarissa-blue-3.jpg" alt="Clarissa Blue 3">
+                    </div>
+                    <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
+                    <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Clarissa Collection - Withe </div>
+                    <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="carousel" data-carousel>
+                    <div class="carousel-images">
+                        <img src="clarissa-blue-1.jpg" alt="Clarissa Blue 1">
+                        <img src="clarissa-blue-2.jpg" alt="Clarissa Blue 2">
+                        <img src="clarissa-blue-3.jpg" alt="Clarissa Blue 3">
+                    </div>
+                    <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
+                    <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active" onclick="goToSlide(this, 0)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(this, 1)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(this, 2)"></span>
+                    </div>
+                </div>
                 <div class="product-info">
                     <div class="product-name">Clarissa Collection - Blue</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -357,12 +492,10 @@
     <section class="info-section">
         <div class="info-content">
             <h2>How to order</h2>
-            <p>We currently do not offer direct online ordering through our store. To place an order, please contact
-                us
+            <p>We currently do not offer direct online ordering through our store. To place an order, please contact us
                 via the Contact page and let us know which product you're interested in.</p>
             <p><strong>Accepted payment methods: TWINT and PayPal</strong></p>
-            <p>We also specialize in personalized jewelry! If you're looking for a custom piece, simply let us know
-                your
+            <p>We also specialize in personalized jewelry! If you're looking for a custom piece, simply let us know your
                 ideas or preferences. We'll work with you to bring your vision to life.</p>
             <a href="#contact" class="cta-button">Contact Us</a>
         </div>
@@ -370,12 +503,12 @@
 
     <div class="container" id="about">
         <div class="about-section">
-            <div class="about-image">💍</div>
+            <img src="about.png" alt="About Beads by Blanche"
+                style="width: 100%; height: 400px; object-fit: cover; border-radius: 10px;">
             <div class="about-text">
                 <h2>About us</h2>
                 <p>My name is Blanche, and when I'm not reading my law course notes, I love making all kinds of
-                    creations, so I thought, why not take the plunge and share my creations with you? They're
-                    perfect
+                    creations, so I thought, why not take the plunge and share my creations with you? They're perfect
                     for adding a touch of elegance and uniqueness to your outfit.</p>
                 <p>These earrings are made with stainless steel hooks and pearls. They can be customised in your
                     favourite colours.</p>
@@ -388,8 +521,7 @@
     <section class="info-section">
         <div class="info-content">
             <h2>Stainless steel and pearls</h2>
-            <p>All our earrings are crafted with high-quality stainless steel hooks and beautiful pearls, ensuring
-                both
+            <p>All our earrings are crafted with high-quality stainless steel hooks and beautiful pearls, ensuring both
                 durability and elegance.</p>
             <a href="#catalog" class="cta-button">Shop Now</a>
         </div>
@@ -411,6 +543,58 @@
         </div>
     </section>
 
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Contact Us</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+                Have questions about our jewelry or want to place a custom order? Get in touch with us!
+            </p>
+
+            <form class="contact-form" netlify>
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="product">Product Interest</label>
+                    <input type="text" id="product" name="product" placeholder="e.g., Amiga Collection - Black">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required
+                        placeholder="Tell us about your inquiry or custom order details..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p>mybeadsbyb@email.com</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📱 Instagram</h3>
+                    <p><a href="https://instagram.com/mybeadsbyb" class="social-link">@mybeadsbyb</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>💳 Payment Methods</h3>
+                    <p>TWINT & PayPal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <footer id="contact">
         <div class="footer-content">
             <h3>MybeadsbyB</h3>
@@ -419,6 +603,38 @@
             <p style="margin-top: 2rem;">© 2025 MybeadsbyB. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function moveCarousel(button, direction) {
+            const carousel = button.closest('[data-carousel]');
+            const images = carousel.querySelector('.carousel-images');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            const totalImages = images.children.length;
+
+            let currentIndex = parseInt(carousel.dataset.currentIndex || 0);
+            currentIndex = (currentIndex + direction + totalImages) % totalImages;
+
+            carousel.dataset.currentIndex = currentIndex;
+            images.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(dot, index) {
+            const carousel = dot.closest('[data-carousel]');
+            const images = carousel.querySelector('.carousel-images');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+
+            carousel.dataset.currentIndex = index;
+            images.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach((d, i) => {
+                d.classList.toggle('active', i === index);
+            });
+        }
+    </script>
 </body>
 
 </html>
