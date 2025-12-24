@@ -17,6 +17,9 @@
 
         body {
             font-family: 'Playfair Display', serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
 
 
@@ -354,6 +357,97 @@
             font-weight: bold;
         }
 
+        .contact-section {
+            padding: 5rem 1rem;
+            background: #fafafa;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            background: black;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .submit-button:hover {
+            opacity: 0.85;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-link {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+
         @media (max-width: 768px) {
             .about-section {
                 grid-template-columns: 1fr;
@@ -396,6 +490,7 @@
                 <div class="product-info">
                     <div class="product-name">Amiga Collection - Black</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
 
@@ -405,6 +500,7 @@
                 <div class="product-info">
                     <div class="product-name">Amiga Collection - White</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
 
@@ -414,6 +510,7 @@
                 <div class="product-info">
                     <div class="product-name">Clarissa Collection - Black</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
 
@@ -435,6 +532,7 @@
                 <div class="product-info">
                     <div class="product-name">Clarissa Collection - Pink</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
             <div class="product-card">
@@ -455,6 +553,7 @@
                 <div class="product-info">
                     <div class="product-name">Clarissa Collection - Withe </div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
             <div class="product-card">
@@ -475,6 +574,7 @@
                 <div class="product-info">
                     <div class="product-name">Clarissa Collection - Blue</div>
                     <div class="product-price">CHF 12.00</div>
+                    <button class="add-button">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -534,77 +634,67 @@
         </div>
     </section>
 
-<section class="contact-section" id="contact">
-  <div class="contact-container">
-    <h2 class="section-title">Contact Us</h2>
-    <p class="contact-subtitle">
-      Have questions about our jewelry or want to place a custom order?  
-      Get in touch with us!
-    </p>
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="contact-subtitle">
+                Have questions about our jewelry or want to place a custom order?
+                Get in touch with us!
+            </p>
 
-    <!-- ✅ NETLIFY FORM -->
-    <form 
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      class="contact-form"
-    >
-      <!-- REQUIRED hidden input -->
-      <input type="hidden" name="form-name" value="contact">
+            <!-- ✅ NETLIFY FORM -->
+            <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                <!-- REQUIRED hidden input -->
+                <input type="hidden" name="form-name" value="contact">
 
-      <div class="form-group">
-        <label for="name">Your Name *</label>
-        <input type="text" id="name" name="name" required placeholder="Enter your name">
-      </div>
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
 
-      <div class="form-group">
-        <label for="email">Your Email *</label>
-        <input type="email" id="email" name="email" required placeholder="your@email.com">
-      </div>
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
 
-      <div class="form-group">
-        <label for="product">Product Interest</label>
-        <input type="text" id="product" name="product" placeholder="e.g. Amiga Collection – Black">
-      </div>
+                <div class="form-group">
+                    <label for="product">Product Interest</label>
+                    <input type="text" id="product" name="product" placeholder="e.g. Amiga Collection – Black">
+                </div>
 
-      <div class="form-group">
-        <label for="message">Message *</label>
-        <textarea 
-          id="message" 
-          name="message" 
-          required
-          placeholder="Tell us about your inquiry or custom order..."
-        ></textarea>
-      </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required
+                        placeholder="Tell us about your inquiry or custom order..."></textarea>
+                </div>
 
-      <button type="submit" class="submit-button">
-        Send Message
-      </button>
-    </form>
+                <button type="submit" class="submit-button">
+                    Send Message
+                </button>
+            </form>
 
-    <div class="contact-info">
-      <div class="contact-card">
-        <h3>📧 Email</h3>
-        <p>mybeadsbyb@email.com</p>
-      </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p>mybeadsbyb@email.com</p>
+                </div>
 
-      <div class="contact-card">
-        <h3>📱 Instagram</h3>
-        <p>
-          <a href="https://instagram.com/mybeadsbyb" target="_blank" class="social-link">
-            @mybeadsbyb
-          </a>
-        </p>
-      </div>
+                <div class="contact-card">
+                    <h3>📱 Instagram</h3>
+                    <p>
+                        <a href="https://instagram.com/mybeadsbyb" target="_blank" class="social-link">
+                            @mybeadsbyb
+                        </a>
+                    </p>
+                </div>
 
-      <div class="contact-card">
-        <h3>💳 Payment</h3>
-        <p>TWINT & PayPal</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+                <div class="contact-card">
+                    <h3>💳 Payment</h3>
+                    <p>TWINT & PayPal</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <footer id="contact">
