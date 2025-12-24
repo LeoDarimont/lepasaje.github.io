@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MybeadsbyB - Handmade Beaded Earrings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4a574;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f5e6d3" width="1200" height="600"/><circle cx="600" cy="300" r="100" fill="%23d4a574" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background: white;
+            color: #333;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #d4a574;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            color: #d4a574;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .add-button {
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .add-button:hover {
+            background: #d4a574;
+        }
+
+        .info-section {
+            background: #f9f9f9;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .info-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .info-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #d4a574 0%, #f5e6d3 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .faq-section {
+            background: white;
+            padding: 3rem 2rem;
+        }
+
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .faq-answer {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-link {
+            color: #d4a574;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">MybeadsbyB</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>MybeadsbyB</h1>
+        <p>Handmade beaded earrings</p>
+        <a href="#catalog" class="cta-button">Shop Now</a>
+    </section>
+
+    <div class="container" id="catalog">
+        <h2 class="section-title">New this season</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">✨</div>
+                <div class="product-info">
+                    <div class="product-name">Amiga Collection - Black</div>
+                    <div class="product-price">CHF 12.00</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="earring.png" alt="Amiga Black Earrings"
+                    style="width: 100%; height: 300px; object-fit: cover;">
+                <div class="product-info">
+                    <div class="product-name">Amiga Collection - White</div>
+                    <div class="product-price">CHF 12.00</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🌟</div>
+                <div class="product-info">
+                    <div class="product-name">Clarissa Collection - Black</div>
+                    <div class="product-price">CHF 12.00</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">💎</div>
+                <div class="product-info">
+                    <div class="product-name">Clarissa Collection - Blue</div>
+                    <div class="product-price">CHF 12.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="info-section">
+        <div class="info-content">
+            <h2>How to order</h2>
+            <p>We currently do not offer direct online ordering through our store. To place an order, please contact
+                us
+                via the Contact page and let us know which product you're interested in.</p>
+            <p><strong>Accepted payment methods: TWINT and PayPal</strong></p>
+            <p>We also specialize in personalized jewelry! If you're looking for a custom piece, simply let us know
+                your
+                ideas or preferences. We'll work with you to bring your vision to life.</p>
+            <a href="#contact" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+
+    <div class="container" id="about">
+        <div class="about-section">
+            <div class="about-image">💍</div>
+            <div class="about-text">
+                <h2>About us</h2>
+                <p>My name is Blanche, and when I'm not reading my law course notes, I love making all kinds of
+                    creations, so I thought, why not take the plunge and share my creations with you? They're
+                    perfect
+                    for adding a touch of elegance and uniqueness to your outfit.</p>
+                <p>These earrings are made with stainless steel hooks and pearls. They can be customised in your
+                    favourite colours.</p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/mybeadsbyb"
+                        class="social-link">@mybeadsbyb</a></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="info-section">
+        <div class="info-content">
+            <h2>Stainless steel and pearls</h2>
+            <p>All our earrings are crafted with high-quality stainless steel hooks and beautiful pearls, ensuring
+                both
+                durability and elegance.</p>
+            <a href="#catalog" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How much does shipping cost?</div>
+                <div class="faq-answer">Shipping is free for all orders!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Which countries do you ship to?</div>
+                <div class="faq-answer">We ship throughout Europe.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>MybeadsbyB</h3>
+            <p>Handmade beaded earrings with love ✨</p>
+            <p>Instagram: <a href="https://instagram.com/mybeadsbyb" class="social-link">@mybeadsbyb</a></p>
+            <p style="margin-top: 2rem;">© 2025 MybeadsbyB. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
